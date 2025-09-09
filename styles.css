@@ -1,0 +1,35 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+    color: black;
+    font-size: 35px;
+}
+header {
+    background-color: #69C96E;
+    padding: 50px;
+    justify-items: center;
+}
+
+#library {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+
+}
+
+div .cards {
+    display: grid;
+    background-color: rgb(237, 237, 241);
+    margin: 20px;
+    border: 2px solid black;
+    height: 200px;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 15px;
+}
+
