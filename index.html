@@ -11,7 +11,35 @@
 <body>
     <header>
         <div><h1>Library Project</h1></div>
+        <div class="top_Buttons">
+        <button id="addBookBtn">Add Book</button>
+        </div>
     </header>
+
+    <dialog id="addBook" closeby="closerequest">
+        <form>
+            <div>
+            <h2>Add a new book: </h2>
+            <br><br>
+            <label for="title">Title: </label>
+            <input type="text" id="title" name="title" required>
+            <br><br>
+            <label for="author">Author: </label>
+            <input type="text" id="author" name="author" required >
+            <br><br>
+            <label for="pages">Pages: </label>
+            <input type="text" id="pages" name="pages" required >
+            <br><br>
+            <label for="read">Read: </label>
+            <input type="checkbox" id="read" name="read">
+            <br><br>
+            <button id="cancel" formnovalidate>Cancel</button>
+            <button id="confirm" type="submit">Confirm</button>
+            </div>
+        </form>
+    </dialog>
+
+
 
 </body>
 </html>

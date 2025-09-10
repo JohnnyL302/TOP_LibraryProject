@@ -1,4 +1,11 @@
 const myLibrary = []; 
+const showDialog = document.getElementById("addBookBtn");
+const toAddBook = document.getElementById("addBook");
+const confirmBtn = document.getElementById("confirm"); 
+const cancelBtn = document.getElementById("cancel");
+const checkboxRead = document.getElementById("read");
+const form = document.querySelector("form");
+
 
 function Book(title, author, pages, read) {
     if (!new.target) {
@@ -65,4 +72,35 @@ function displayBooks() {
 }
 
 displayBooks(); 
+
+//===========================Add a new Book =================================
+
+showDialog.addEventListener("click", () => {
+    toAddBook.showModal(); 
+})
+confirmBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const pages = document.getElementById("pages").value;
+    const read = checkboxRead.checked ? "read" : "not read yet";
+
+    newBook = new Book(title, author, pages, read);
+    addBookToLibrary(newBook);
+    displayBooks(); 
+    form.reset();
+    toAddBook.close(); 
+})
+
+cancelBtn.addEventListener("click", (e) => {
+    e.preventDefault(); 
+    toAddBook.close(); 
+    form.reset(); 
+})
+
+
+
+
+
+
 

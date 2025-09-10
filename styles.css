@@ -13,11 +13,18 @@ header {
     justify-items: center;
 }
 
+#addBookBtn {
+    font-size: 15px;
+    border-radius: 10px;
+    height: 50px;
+    width: 200px;
+    margin: 20px;
+}
+
 #library {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-content: center;
-
 }
 
 div .cards {
@@ -27,7 +34,7 @@ div .cards {
     border: 2px solid black;
     height: 200px;
     width: 200px;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     padding: 20px;
     border-radius: 15px;
