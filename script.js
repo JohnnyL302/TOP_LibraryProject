@@ -119,6 +119,11 @@ confirmBtn.addEventListener("click", (event) => {
     const pages = document.getElementById("pages").value;
     const read = checkboxRead.checked ? "Read" : "Not read yet";
 
+    if (!title || !author || !pages) {
+        alert("Please complete the form");
+        return;
+    }
+
     newBook = new Book(title, author, pages, read);
     addBookToLibrary(newBook);
     displayBooks(); 

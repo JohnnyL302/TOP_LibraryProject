@@ -16,6 +16,7 @@ header {
 #addBookBtn {
     font-size: 15px;
     border-radius: 10px;
+    border: none;
     height: 50px;
     width: 200px;
     margin: 20px;
@@ -40,3 +41,46 @@ div .cards {
     border-radius: 15px;
 }
 
+dialog {
+    justify-self: center;
+    align-self: center;
+    border-radius: 10px;
+}
+
+form {
+    background-color: whitesmoke;
+    height: 300px;
+    width: 300px;
+    padding: 50px;
+}
+
+form label {
+    font-size: 20px;
+}
+
+form input {
+    width: 100%;
+    height: 20px;
+
+}
+
+.deleteButton, .toggleRead {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #69C96E;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.deleteButton {
+    background-color: rgb(199, 97, 97);
+}
+
+#confirm, #cancel {
+    height: 30px;
+    width: 90px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
