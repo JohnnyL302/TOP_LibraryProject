@@ -26,10 +26,10 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
-const book1 = new Book("The Hobbit", "J.R.R. Tolkien", "295", "not read yet"); 
-const book2 = new Book("Harry Potter", "J.K. Rowling", "350", "not read yet");
-const book3 = new Book("The Outsiders", "S. E. Hinton", "224", "read");
-const book4 = new Book("The Great Gatsby", "F. Scott Fitzgerald", "200", "read");
+const book1 = new Book("The Hobbit", "J.R.R. Tolkien", "295", "Not read yet"); 
+const book2 = new Book("Harry Potter", "J.K. Rowling", "350", "Not read yet");
+const book3 = new Book("The Outsiders", "S. E. Hinton", "224", "Read");
+const book4 = new Book("The Great Gatsby", "F. Scott Fitzgerald", "200", "Read");
 
 
 addBookToLibrary(book1);
@@ -54,6 +54,8 @@ function displayBooks() {
         const bookCard = document.createElement("div");
         bookCard.classList.add("cards"); 
 
+        bookCard.dataset.id = book.id;
+
         const title = document.createElement("h2");
         title.textContent = book.title;
         bookCard.appendChild(title); 
@@ -66,6 +68,38 @@ function displayBooks() {
         pages.textContent = `${book.pages} pages`;
         bookCard.appendChild(pages);
 
+        const read = document.createElement("h4");
+        read.textContent = `${book.read}`;
+        bookCard.appendChild(read);
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.classList.add("deleteButton");
+
+        deleteButton.addEventListener("click", () => {
+            const bookId = bookCard.dataset.id; 
+            const updatedLibrary = myLibrary.filter(b => b.id !== bookId);
+            myLibrary.length = 0;
+            myLibrary.push(...updatedLibrary);
+            displayBooks(); 
+        })
+
+        const toggleRead = document.createElement("button");
+        toggleRead.textContent = "Toggle Read"; 
+        toggleRead.classList.add("toggleRead");
+
+        toggleRead.addEventListener("click", () => {
+            const bookId = bookCard.dataset.id;
+            const bookToToggle = myLibrary.find(b => b.id === bookId);
+
+            if (bookToToggle) {
+                bookToToggle.read = bookToToggle.read === "Read" ? "Not Read Yet" : "Read";
+                displayBooks(); 
+            }
+        })
+        
+        bookCard.appendChild(deleteButton);
+        bookCard.appendChild(toggleRead); 
         container.appendChild(bookCard);
 
     });
@@ -83,7 +117,7 @@ confirmBtn.addEventListener("click", (event) => {
     const title = document.getElementById("title").value;
     const author = document.getElementById("author").value;
     const pages = document.getElementById("pages").value;
-    const read = checkboxRead.checked ? "read" : "not read yet";
+    const read = checkboxRead.checked ? "Read" : "Not read yet";
 
     newBook = new Book(title, author, pages, read);
     addBookToLibrary(newBook);
@@ -97,6 +131,10 @@ cancelBtn.addEventListener("click", (e) => {
     toAddBook.close(); 
     form.reset(); 
 })
+
+//=============================To Delete A Book================================
+
+
 
 
 
